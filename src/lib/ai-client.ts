@@ -2,7 +2,7 @@ export type StreamArgs = {
   system: string;
   input: string | Array<{ role: "user" | "assistant"; content: string }>;
   onDelta: (chunk: string) => void;
-  signal?: AbortSignal;
+  signal?: AbortSignal | undefined;
 };
 
 export async function streamAI({ system, input, onDelta, signal }: StreamArgs): Promise<string> {
@@ -23,7 +23,7 @@ export async function streamAI({ system, input, onDelta, signal }: StreamArgs): 
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ system, input: payload }),
-    signal,
+    ...(signal ? { signal } : {}),
   });
 
   if (!res.ok || !res.body) {
