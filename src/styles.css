@@ -146,3 +146,22 @@
     color: var(--color-foreground);
   }
 }
+
+@theme inline {
+  --color-surface-panel: var(--surface-panel);
+  --font-sans: var(--font-sans);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@utility panel-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
