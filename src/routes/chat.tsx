@@ -25,7 +25,7 @@ export const Route = createFileRoute("/chat")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: Chat;
+  component: Chat,
 });
 
 const SYSTEM = `You are a professional workplace productivity assistant.
